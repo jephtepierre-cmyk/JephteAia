@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hello AI Chat !</title>
+  <style>
+    /* full-screen body gradient */
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      background: linear-gradient(to bottom right, #ffffff 0%, #ffeb3b 100%);
+      font-family: sans-serif;
+    }
+    #welcome-screen {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(to bottom right, blue 0%, yellow 50%, white 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 2;
+    }
+    #logo {
+      width: 120px; height: 120px; background: #fff;
+      border-radius: 50%; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 3rem; font-weight: bold;
+      color: #4CAF50; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      margin-bottom: 20px;
+    }
+    #enter-btn {
+      padding: 15px 30px; font-size: 1.5rem;
+      background: #4CAF50; border: none; color: #fff;
+      cursor: pointer;
+    }
+    /* chat container full screen, hidden by default */
+    #chat-container {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom right, #ffffff 0%, #ffeb3b 100%);
+      box-sizing: border-box; padding: 20px;
+      display: none;
+      flex-direction: column;
+      z-index: 1;
+    }
+    #chat-container.show { display: flex; }
+    #chat-log {
+      flex: 1; border: 1px solid #ccc;
+      padding: 10px; overflow-y: auto;
+      background: transparent; margin-bottom: 10px;
+    }
+    #chat-input {
+      padding: 10px; border: 1px solid #ccc;
+      width: 100%; box-sizing: border-box;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div id="welcome-screen">
+    <div id="logo">HAI</div>
+    <h1>Welcome to Hello AI Chat!</h1>
+    <p>Click below to start your conversation.</p>
+    <button id="enter-btn">Enter Chat</button>
+  </div>
+
+  <div id="chat-container">
+    <div id="chat-log"></div>
+    <input id="chat-input" placeholder="Ask me anything..." autofocus/>
+  </div>
+
+  <script>
+    document.getElementById('enter-btn').addEventListener('click', () => {
+      document.getElementById('welcome-screen').style.display = 'none';
+      document.getElementById('chat-container').classList.add('show');
+      document.getElementById('chat-input').focus();
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
